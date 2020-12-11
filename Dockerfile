@@ -6,6 +6,7 @@
 # usage for run your build:
 #   docker run -it --rm YOUR_TAG_HERE
 
+# base docker image
 FROM debian:stable
 
 # download miniconda for python 3 and install python 3.8.3
@@ -27,7 +28,6 @@ RUN apt-get install software-properties-common -y
 RUN apt-get install dirmngr -y
 RUN apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
 RUN add-apt-repository 'deb http://cloud.r-project.org/bin/linux/debian buster-cran40/'
-#RUN apt install -t buster-cran40 r-base r-base-dev
 RUN apt-get update
 RUN apt-get install r-base r-base-dev -y
 

@@ -3,6 +3,14 @@ Hypothesis testing for the counts of graffiti in two areas of Vancouver
 Kangbo Lu, Siqi Zhou, Mitchie Zhao, Mengyuan Zhu </br>
 2020/11/26 (updated: 2020-12-11)
 
+-   [Summary](#summary)
+-   [Introduction](#introduction)
+-   [Methods](#methods)
+    -   [Exploratory Data Analysis](#exploratory-data-analysis)
+    -   [Statistical Analysis](#statistical-analysis)
+    -   [Results & Discussion](#results-discussion)
+-   [References](#references)
+
 # Summary
 
 In this research project, we tried to answer the research question of
@@ -10,7 +18,7 @@ whether the number of graffiti in Vancouver’s Downtown area is the same
 as the number of graffiti in Vancouver’s Strathcona area.
 
 Due to the skewness of our sample distribution, we used the median as
-the test statistics and set the \(\alpha = 0.05\) with the two-tailed
+the test statistics and set the *α* = 0.05 with the two-tailed
 permutation test method to study the difference in the medians.
 
 For statistical analysis, we conducted a simulation with 10000
@@ -44,7 +52,7 @@ the analysis: docopt (de Jonge 2018), knitr (Xie 2020), tidyverse
 (Wickham et al. 2019), ggplot2 (Wickham 2016), infer (Bray et al. 2020).
 The code used to perform the analysis and create this report can be
 found here:
-<https://github.com/UBC-MDS/DSCI_522_Group_34/blob/main/src/analysis.R>.
+<a href="https://github.com/UBC-MDS/DSCI_522_Group_34/blob/main/src/analysis.R" class="uri">https://github.com/UBC-MDS/DSCI_522_Group_34/blob/main/src/analysis.R</a>.
 
 # Methods
 
@@ -60,18 +68,14 @@ The license of data can be found
 There are 8,028 rows and 3 columns in our dataset. Each row in the
 dataset records the number of graffiti incidents by the geographic area
 of Vancouver along with the spatial representation of the location by
-coordinates stored in JSON
-format.
+coordinates stored in JSON format.
 
 <div class="figure">
 
 <img src="../src/eda_files/figure-gfm/eda-1.png" alt="Figure 1. Distribution of graffiti count by Vancouver region: downtown and Strathcona area" width="60%" />
-
 <p class="caption">
-
 Figure 1. Distribution of graffiti count by Vancouver region: downtown
 and Strathcona area
-
 </p>
 
 </div>
@@ -96,20 +100,21 @@ as we like. If the null hypothesis is true, the shuffled data sets
 should look similar to the real data. Otherwise, they should look
 different from the real data. Comparing the shuffled test statistics to
 the real test statistics gives a p-value. Then, we compared the p-value
-with our defined threshold \(\alpha = 0.05\) to draw the conclusion for
-our research question.
+with our defined threshold *α* = 0.05 to draw the conclusion for our
+research question.
 
 **Estimator:**  
 The median of the number of graffiti per recorded location
 
 **Hypothesis**  
-\(H_0\): The median of the number of graffiti per recorded location of
-Vancouver’s Downtown area is the same as the median of the number of
-graffiti per recorded location of Vancouver’s Strathcona area
+*H*<sub>0</sub>: The median of the number of graffiti per recorded
+location of Vancouver’s Downtown area is the same as the median of the
+number of graffiti per recorded location of Vancouver’s Strathcona area
 
-\(H_a\): The median of the number of graffiti per recorded location of
-Vancouver’s Downtown area is not the same as the median of the number of
-graffiti per recorded location of Vancouver’s Strathcona area
+*H*<sub>*a*</sub>: The median of the number of graffiti per recorded
+location of Vancouver’s Downtown area is not the same as the median of
+the number of graffiti per recorded location of Vancouver’s Strathcona
+area
 
 **Test Flavor**  
 Two-tailed permutation test for the median.
@@ -125,7 +130,7 @@ our interest. The medians of the counts of graffiti per location in the
 two areas are listed below:
 
 | geo\_local\_area | median\_count |
-| :--------------- | ------------: |
+|:-----------------|--------------:|
 | Downtown         |             3 |
 | Strathcona       |             3 |
 
@@ -134,17 +139,13 @@ Table 1. Results of computed median values of the 2 classes
 To look at whether our null hypothesis is valid, we conducted a
 simulation with 10000 permutation replicates of the differences in
 medians. The figure below visualizes the simulated null distribution
-with the test
-statistics.
+with the test statistics.
 
 <div class="figure">
 
 <img src="../results/analysis.png" alt="Figure 2. The simulation-based distribution of the null hypothesis" width="50%" />
-
 <p class="caption">
-
 Figure 2. The simulation-based distribution of the null hypothesis
-
 </p>
 
 </div>
@@ -153,7 +154,7 @@ Then, we calculated the corresponding p-value of the null distribution
 for drawing the conclusion:
 
 | delta\_sample | p\_value |
-| ------------: | -------: |
+|--------------:|---------:|
 |             0 |        1 |
 
 Table 2. The corresponding p-value of the null hypothesis
@@ -182,9 +183,9 @@ distribution.
 
 # References
 
-<div id="refs" class="references">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-infer">
+<div id="ref-infer" class="csl-entry">
 
 Bray, Andrew, Chester Ismay, Evgeni Chasnovski, Ben Baumer, and Mine
 Cetinkaya-Rundel. 2020. *Infer: Tidy Statistical Inference*.
@@ -192,36 +193,36 @@ Cetinkaya-Rundel. 2020. *Infer: Tidy Statistical Inference*.
 
 </div>
 
-<div id="ref-quantile">
+<div id="ref-quantile" class="csl-entry">
 
 Bzik, Thomas J. 2014. *Quantile Estimation*. ASTM Standardization.
 <https://www.astm.org/SNEWS/images/ja14_dp.pdf>.
 
 </div>
 
-<div id="ref-graffiti">
+<div id="ref-graffiti" class="csl-entry">
 
 City of Vancouver. 2020. *Graffiti*.
 <https://opendata.vancouver.ca/explore/dataset/graffiti/information/>.
 
 </div>
 
-<div id="ref-docopt">
+<div id="ref-docopt" class="csl-entry">
 
 de Jonge, Edwin. 2018. *Docopt: Command-Line Interface Specification
 Language*. <https://CRAN.R-project.org/package=docopt>.
 
 </div>
 
-<div id="ref-moderndive">
+<div id="ref-moderndive" class="csl-entry">
 
 Ismay, Chester, and Albert Y. Kim. 2019. *Statistical Inference via Data
-Science: A Moderndive into R and the Tidyverse*. New York: Chapman;
+Science: A ModernDive into r and the Tidyverse*. New York: Chapman;
 Hall/CRC.
 
 </div>
 
-<div id="ref-R">
+<div id="ref-R" class="csl-entry">
 
 R Core Team. 2020. *R: A Language and Environment for Statistical
 Computing*. Vienna, Austria: R Foundation for Statistical Computing.
@@ -229,33 +230,33 @@ Computing*. Vienna, Austria: R Foundation for Statistical Computing.
 
 </div>
 
-<div id="ref-Python">
+<div id="ref-Python" class="csl-entry">
 
 Van Rossum, Guido, and Fred L. Drake. 2009. *Python 3 Reference Manual*.
 Scotts Valley, CA: CreateSpace.
 
 </div>
 
-<div id="ref-ggplot2">
+<div id="ref-ggplot2" class="csl-entry">
 
 Wickham, Hadley. 2016. *Ggplot2: Elegant Graphics for Data Analysis*.
 Springer-Verlag New York. <https://ggplot2.tidyverse.org>.
 
 </div>
 
-<div id="ref-tidyverse">
+<div id="ref-tidyverse" class="csl-entry">
 
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
 D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the tidyverse.” *Journal of Open Source Software* 4 (43):
-1686. <https://doi.org/10.21105/joss.01686>.
+“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
+Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
 
 </div>
 
-<div id="ref-knitr">
+<div id="ref-knitr" class="csl-entry">
 
 Xie, Yihui. 2020. *Knitr: A General-Purpose Package for Dynamic Report
-Generation in R*. <https://yihui.org/knitr/>.
+Generation in r*. <https://yihui.org/knitr/>.
 
 </div>
 
