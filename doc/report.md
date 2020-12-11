@@ -1,25 +1,16 @@
 Hypothesis testing for the counts of graffiti in two areas of Vancouver
 ================
 Kangbo Lu, Siqi Zhou, Mitchie Zhao, Mengyuan Zhu </br>
-2020/11/26 (updated: 2020-12-10)
+2020/11/26 (updated: 2020-12-11)
 
--   [Summary](#summary)
--   [Introduction](#introduction)
--   [Methods](#methods)
-    -   [Exploratory Data Analysis](#exploratory-data-analysis)
-    -   [Statistical Analysis](#statistical-analysis)
-    -   [Results & Discussion](#results-discussion)
--   [References](#references)
-
-Summary
-=======
+# Summary
 
 In this research project, we tried to answer the research question of
 whether the number of graffiti in Vancouver’s Downtown area is the same
 as the number of graffiti in Vancouver’s Strathcona area.
 
 Due to the skewness of our sample distribution, we used the median as
-the test statistics and set the *α* = 0.05 with the two-tailed
+the test statistics and set the \(\alpha = 0.05\) with the two-tailed
 permutation test method to study the difference in the medians.
 
 For statistical analysis, we conducted a simulation with 10000
@@ -27,8 +18,7 @@ permutation replicates, plotted the confidence interval of the simulated
 null-distribution with the test statistics, and calculated the p-value
 to draw the conclusion.
 
-Introduction
-============
+# Introduction
 
 Here we attempted to conduct a hypothesis test with a suitable test
 flavor to answer the statistical research question, that is, whether the
@@ -54,13 +44,11 @@ the analysis: docopt (de Jonge 2018), knitr (Xie 2020), tidyverse
 (Wickham et al. 2019), ggplot2 (Wickham 2016), infer (Bray et al. 2020).
 The code used to perform the analysis and create this report can be
 found here:
-<a href="https://github.com/UBC-MDS/DSCI_522_Group_34/blob/main/src/analysis.R" class="uri">https://github.com/UBC-MDS/DSCI_522_Group_34/blob/main/src/analysis.R</a>.
+<https://github.com/UBC-MDS/DSCI_522_Group_34/blob/main/src/analysis.R>.
 
-Methods
-=======
+# Methods
 
-Exploratory Data Analysis
--------------------------
+## Exploratory Data Analysis
 
 The dataset used in this project provides information on the location of
 sites with graffiti identified by City staff. It was sourced from the
@@ -72,14 +60,18 @@ The license of data can be found
 There are 8,028 rows and 3 columns in our dataset. Each row in the
 dataset records the number of graffiti incidents by the geographic area
 of Vancouver along with the spatial representation of the location by
-coordinates stored in JSON format.
+coordinates stored in JSON
+format.
 
 <div class="figure">
 
 <img src="../src/eda_files/figure-gfm/eda-1.png" alt="Figure 1. Distribution of graffiti count by Vancouver region: downtown and Strathcona area" width="60%" />
+
 <p class="caption">
+
 Figure 1. Distribution of graffiti count by Vancouver region: downtown
 and Strathcona area
+
 </p>
 
 </div>
@@ -94,8 +86,7 @@ distributions also makes the median a suitable test flavor, since the
 median is not sensitive to extreme values as it is mathematically
 defined by the 50th percentile of a distribution.
 
-Statistical Analysis
---------------------
+## Statistical Analysis
 
 To estimate the sampling distribution of the test statistic we need many
 samples generated under the null hypothesis. If the null hypothesis is
@@ -105,21 +96,20 @@ as we like. If the null hypothesis is true, the shuffled data sets
 should look similar to the real data. Otherwise, they should look
 different from the real data. Comparing the shuffled test statistics to
 the real test statistics gives a p-value. Then, we compared the p-value
-with our defined threshold *α* = 0.05 to draw the conclusion for our
-research question.
+with our defined threshold \(\alpha = 0.05\) to draw the conclusion for
+our research question.
 
 **Estimator:**  
 The median of the number of graffiti per recorded location
 
 **Hypothesis**  
-*H*<sub>0</sub>: The median of the number of graffiti per recorded
-location of Vancouver’s Downtown area is the same as the median of the
-number of graffiti per recorded location of Vancouver’s Strathcona area
+\(H_0\): The median of the number of graffiti per recorded location of
+Vancouver’s Downtown area is the same as the median of the number of
+graffiti per recorded location of Vancouver’s Strathcona area
 
-*H*<sub>*a*</sub>: The median of the number of graffiti per recorded
-location of Vancouver’s Downtown area is not the same as the median of
-the number of graffiti per recorded location of Vancouver’s Strathcona
-area
+\(H_a\): The median of the number of graffiti per recorded location of
+Vancouver’s Downtown area is not the same as the median of the number of
+graffiti per recorded location of Vancouver’s Strathcona area
 
 **Test Flavor**  
 Two-tailed permutation test for the median.
@@ -128,15 +118,14 @@ Two-tailed permutation test for the median.
 We used delta to represent the difference between the median counts of
 graffiti in each area.
 
-Results & Discussion
---------------------
+## Results & Discussion
 
 First we calculated the median values of the counts in the 2 areas of
 our interest. The medians of the counts of graffiti per location in the
 two areas are listed below:
 
 | geo\_local\_area | median\_count |
-|:-----------------|--------------:|
+| :--------------- | ------------: |
 | Downtown         |             3 |
 | Strathcona       |             3 |
 
@@ -145,13 +134,17 @@ Table 1. Results of computed median values of the 2 classes
 To look at whether our null hypothesis is valid, we conducted a
 simulation with 10000 permutation replicates of the differences in
 medians. The figure below visualizes the simulated null distribution
-with the test statistics.
+with the test
+statistics.
 
 <div class="figure">
 
 <img src="../results/analysis.png" alt="Figure 2. The simulation-based distribution of the null hypothesis" width="50%" />
+
 <p class="caption">
+
 Figure 2. The simulation-based distribution of the null hypothesis
+
 </p>
 
 </div>
@@ -160,7 +153,7 @@ Then, we calculated the corresponding p-value of the null distribution
 for drawing the conclusion:
 
 | delta\_sample | p\_value |
-|--------------:|---------:|
+| ------------: | -------: |
 |             0 |        1 |
 
 Table 2. The corresponding p-value of the null hypothesis
@@ -187,10 +180,9 @@ redundant and unrepresentative data points since there are many zero
 values in Downtown and Strathcona areas, leading to a very centralized
 distribution.
 
-References
-==========
+# References
 
-<div id="refs" class="references hanging-indent">
+<div id="refs" class="references">
 
 <div id="ref-infer">
 
