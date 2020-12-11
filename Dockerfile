@@ -8,8 +8,6 @@
 
 FROM debian:stable
 
-LANG=en_US.UTF-8
-
 # download miniconda for python 3 and install python 3.8.3
 RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
     && curl -sSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh \
@@ -38,4 +36,4 @@ RUN apt-get install libcurl4-openssl-dev libssl-dev libxml2-dev -y
 RUN Rscript -e "install.packages(c('tidyverse', 'devtools', 'rmarkdown'), Ncpus = 4)"
 RUN Rscript -e "install.packages(c('docopt', 'RCurl', 'infer'), Ncpus = 4)"
 RUN apt-get install pandoc -y
-RUN apt-get install pandoc-citeproc
+RUN apt-get install pandoc-citeproc -y
