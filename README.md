@@ -38,6 +38,38 @@ We created the following 4 files that are important for collaboration:
 
 ## Usage  
 
+There are two suggested ways to run this analysis:
+
+#### 1\. Using Docker
+
+*note - the instructions in this section also depends on running this in
+a unix shell (e.g., terminal or Git Bash)*
+
+To replicate the analysis, install
+[Docker](https://www.docker.com/get-started). Then clone this GitHub
+repository and run the following command at the command line/terminal
+from the root directory of this project:
+
+``` 
+docker run -it --rm -v /$(pwd):/home/project kbludocker/vancouver-graffiti make -C home/project all
+```
+
+
+
+To reset the repo to a clean state, with no intermediate or results
+files, run the following command at the command line/terminal from the
+root directory of this project:
+
+
+```
+docker run -it --rm -v /$(pwd):/home/project kbludocker/vancouver-graffiti make -C home/project clean
+```
+
+   
+
+
+#### 2\. Without using Docker
+
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
 
 
