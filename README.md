@@ -100,6 +100,8 @@ Click the image below to view it with the original size.
       - ggplot2==3.3.2
       - RCurl==1.98.1.2
       - infer==0.5.3
+      
+  - GNU make 3.81
 
 ## License
 
